@@ -9,7 +9,7 @@ int solve_puzzle(int puzzle[9][9], int row, int col);
 // includes messages, calls functions, and prints results
 int main() {
 
-  // messages to type in the game
+  // messages to type in the sudoku game
   int puzzle[9][9];
   printf("Please type in the Sudoku game!\n");
   printf("Make sure to use 0 for empty spaces and type just numbers and spaces!\n");
