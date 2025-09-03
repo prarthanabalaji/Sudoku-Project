@@ -1,34 +1,34 @@
 #include <stdio.h>
 
-// setting up one example of a sudoku game
-int puzzle[9][9] = {
-  {0,0,0,0,1,0,0,3,0},
-  {0,0,9,0,0,5,0,0,8},
-  {8,0,4,0,0,6,0,2,5},
-  {0,0,0,0,0,0,6,0,0},
-  {0,0,8,0,0,4,0,0,0},
-  {1,2,0,0,8,7,0,0,0},
-  {3,0,0,9,0,0,2,0,0},
-  {0,6,5,0,0,8,0,0,0},
-  {9,0,0,0,0,0,0,0,0},
-};
-
 // setting up function declarations 
 void print_puzzle(int puzzle[9][9]);
 int valid_guess(int puzzle[9][9], int row, int col, int val);
 int solve_puzzle(int puzzle[9][9], int row, int col);
 
+
 // includes messages, calls functions, and prints results
 int main() {
+
+  // messages to type in the game
+  int puzzle[9][9];
+  printf("Please type in the Sudoku game!\n");
+  printf("Make sure to use 0 for empty spaces and type just numbers and spaces!\n");
+
+  // taking user input for 9x9 grid
+  for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            scanf("%d", &puzzle[i][j]);
+        }
+    }
 
   printf("\n\tWelcome to Solve Your Sudoku!");
   printf("\n\nOriginal Puzzle:");
   print_puzzle(puzzle);
   if (solve_puzzle(puzzle, 0, 0)) {
-    printf("\n The puzzle is solved: ");
+    printf("\n Here is the solved puzzle!: ");
     print_puzzle(puzzle);
   } else {
-    printf("\n This puzzle is not solvable. Try a new puzzle!\n");
+    printf("\n This puzzle cannot be solved. Try inputting new puzzle!\n");
   }
   return 0;
   
@@ -70,7 +70,7 @@ int solve_puzzle(int puzzle[9][9], int row, int col) {
   return 0;
 }
 
-int valid_move(int puzzle[9][9], int row, int col, int val) {
+int valid_guess(int puzzle[9][9], int row, int col, int val) {
 
   // checking every column for a given row. invalid returns 0
   for (int i = 0; i < 9; i++) {
@@ -123,3 +123,4 @@ void print_puzzle(int puzzle[9][9]) {
   }
   printf("\n+-------+-------+-------+\n");
 }
+  
